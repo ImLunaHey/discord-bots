@@ -1,6 +1,6 @@
 import { CommandInteraction, GuildMember } from 'discord.js';
 import { Discord, Slash, SlashGroup, SlashOption } from 'discordx';
-import { logger } from '../../common/logger.js';
+import { logger } from '../../../common/logger.js';
 
 @Discord()
 @SlashGroup({

@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { dirname as dirnameImporter, importx } from '@discordx/importer';
-import { logger } from '../common/logger.js';
-import { createDiscordClient } from '../common/discord-client.js';
-import { environment, botToken } from '../common/config.js';
+import { logger } from '../../common/logger.js';
+import { createDiscordClient } from '../../common/discord-client.js';
+import { environment, botToken } from '../../common/config.js';
 
 const NAME = 'user-tag-manager';
 
@@ -23,7 +23,7 @@ const main = async () => {
 };
 
 main().catch(async (error: unknown) => {
-  const { environment } = await import('../common/config.js');
+  const { environment } = await import('../../common/config.js');
 
   if (!(error instanceof Error)) throw new Error(`Unknown error "${error}"`); 
   if (environment !== 'production') logger.error('Failed to load bot with "%s"\n%s', error.message, error.stack);

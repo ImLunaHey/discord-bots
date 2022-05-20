@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev:user-tag-manager": "nodemon --exec node --loader ts-node/esm/transpile-only src/user-tag-manager/main.ts",
+    "dev:user-tag-manager": "nodemon --exec node --loader ts-node/esm/transpile-only src/bots/user-tag-manager/main.ts",
     "start-all": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
