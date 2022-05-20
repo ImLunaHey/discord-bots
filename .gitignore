@@ -1,0 +1,10 @@
+dist
+node_modules
+.vscode
+.env
+.env*
+!.env.example
+data
+scratch-pad
+scratch-pad.js
+.notes
