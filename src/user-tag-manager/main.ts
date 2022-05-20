@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { dirname as dirnameImporter, importx } from '@discordx/importer';
-import { Koa } from '@discordx/koa';
 import { logger } from '../common/logger.js';
 import { createDiscordClient } from '../common/discord-client.js';
 import { environment, botToken } from '../common/config.js';
@@ -19,22 +18,8 @@ const main = async () => {
   // Create the discord.js client
   const client = createDiscordClient(NAME, { intents: [], partials: [], prefix: '$utm' });
 
-  // let's start the bot
+  // Connect to the discord gateway
   await client.login(botToken);
-
-  // api: prepare server
-  const httpServer = new Koa();
-
-  // api: need to build the api server first
-  await httpServer.build();
-
-  // api: let's start the server now
-  const port = process.env.PORT ?? 0;
-  const server = httpServer.listen(port, () => {
-    const address = server.address();
-    const localURL = typeof address === 'string' ? address : `http://localhost:${address?.port}`;
-    logger.info('API server started at "%s"', localURL);
-  });
 };
 
 main().catch(async (error: unknown) => {
