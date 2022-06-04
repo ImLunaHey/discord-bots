@@ -10,7 +10,8 @@ export const environment: 'production' | string = process.env.NODE_ENV ?? 'produ
 const dotEnvFilePath = joinPath(__dirname, '../../', environment === 'production' ? '.env' : `.env.${environment}`);
 dotenv.config({ path: dotEnvFilePath });
 
-export const botToken = process.env.DEV_BOT_TOKEN ?? process.env.BOT_TOKEN;
+export const botTokenName = process.env.BOT_TOKEN_NAME ?? 'BOT_TOKEN';
+export const botToken = process.env[botTokenName] ?? process.env.BOT_TOKEN;
 
 if (!botToken) {
     console.error('BOT_TOKEN OR DEV_BOT_TOKEN needs to be set.');
