@@ -56,7 +56,7 @@ export class PurgeCommand {
                 
                 // false - Member joined less than 20 mins ago
                 if (Date.now() - (member.joinedTimestamp ?? 0) < TWENTY_MINUTES) return false;
-                
+
                 // true - Member has no roles
                 if (member.roles.cache.size === 1) return true;
 
@@ -72,7 +72,7 @@ export class PurgeCommand {
                     const levelRole = roleName.startsWith('level');
                     if (!levelRole) return false;
                     const level = Number(roleName.split('level ')[1]);
-                    return level >= 20;
+                    return level >= 1;
                 }) !== undefined) return true;
 
                 // false - member didn't meet any of the criteria
